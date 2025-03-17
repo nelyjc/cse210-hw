@@ -13,7 +13,8 @@ public class PromptGenerator
         "What is something fun that you did today?",
         "What would you like to get done this week?",
         "What are 3 goals you have for yourself?",
-        "Did you serve someone this week?"
+        "Did you serve someone this week?",
+        "What is something you can do to help someone this week?"
     };
 
     private Random _random = new Random();
