@@ -56,6 +56,6 @@ class Journal
                 _entries.Add(entry);
             }
         }
-        Console.WriteLine("Journal loaded successfully.");
+        Console.WriteLine("Journal load Complete");
     }
 }

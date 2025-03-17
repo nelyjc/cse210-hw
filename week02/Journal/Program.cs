@@ -1,6 +1,15 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
+// I did not add anything extra because I'm exhausted and this was alot of work. It might not even work because at times I got a directory message that
+// there was something wrong with the directory. Then I got a message about something with the .Net being wrong. It's my fault because VS Studio
+// asked if I wanted to update it. I clicked Yes and that's where all disconnection started. I uninstalled and installed the extensions and all that. 
+// Anyways, I hope it works for you, at one point it did for me and then I change just one little thing and I get this message:
+//C:\Program Files\dotnet\sdk\8.0.406\Microsoft.Common.CurrentVersion.targets(5321,5): error MSB3021: Unable to copy file 
+// "C:\Users\nelyj\Desktop\cse210\cse210-hw\week02\Journal\obj\Debug\net8.0\apphost.exe" to "bin\Debug\net8.0\Journal.exe".
+//  The process cannot access the file 'C:\Users\nelyj\Desktop\cse210\cse210-hw\week02\Journal\bin\Debug\net8.0\Journal.exe' 
+// because it is being used by another process. [C:\Users\nelyj\Desktop\cse210\cse210-hw\week02\Journal\Journal.csproj]
+// It should work now but if it doesn't, I guess you'll let me know :).
 
 class Program
 {
