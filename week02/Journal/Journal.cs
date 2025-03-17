@@ -34,14 +34,14 @@ class Journal
                 writer.WriteLine($"{entry.Date}|{entry.Prompt}|{entry.Response}");
             }
         }
-        Console.WriteLine("Journal saved successfully.");
+        Console.WriteLine("Journal saved!");
     }
 
     public void LoadFromFile(string filename)
     {
         if (!File.Exists(filename))
         {
-            Console.WriteLine("File not found.");
+            Console.WriteLine("File Does Not Exist");
             return;
         }
 
