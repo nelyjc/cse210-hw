@@ -1,8 +1,25 @@
-// // //GetDisplayText() : string
+using System;
+using System.Collections.Generic;
+using System.Linq;
+class Reference
+{
+    public string Book { get; }
+    public int Chapter { get; }
+    public int StartVerse { get; }
+    public int EndVerse { get; }
 
-// // Possible getters and setters
+    public Reference(string book, int chapter, int startVerse, int endVerse = -1)
+    {
+        Book = book;
+        Chapter = chapter;
+        StartVerse = startVerse;
+        EndVerse = endVerse == -1 ? startVerse : endVerse;
+    }
 
-// //_book : string
-// _chapter : int
-// _verse : int
-// _endVerse : int
+    public string GetDisplayText()
+    {
+        return EndVerse > StartVerse
+            ? $"{Book} {Chapter}:{StartVerse}-{EndVerse}"
+            : $"{Book} {Chapter}:{StartVerse}";
+    }
+}

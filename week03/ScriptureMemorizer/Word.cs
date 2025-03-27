@@ -1,11 +1,34 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+class Word
+{
+    private string _text;
+    private bool isHidden;
 
+    public Word(string text)
+    {
+        _text = text;
+        isHidden = false;
+    }
 
-// Hide() : void
-// Show() : void
-// IsHidden() : bool
-// GetDisplayText() : string
+    public void Hide()
+    {
+        isHidden = true;
+    }
 
-// //_text : string
+    public void Show()
+    {
+        isHidden = false;
+    }
 
-// _isHidden : bool
+    public bool IsHidden()
+    {
+        return isHidden;
+    }
+
+    public string GetDisplayText()
+    {
+        return isHidden ? "_____" : _text;
+    }
+}
