@@ -13,7 +13,7 @@ class Program
 
         Console.WriteLine(order1.GetPackingLabel());
         Console.WriteLine(order1.GetShippingLabel());
-        Console.WriteLine($"Total Cost: ${order1.GetTotalCost():F2}\n");
+        Console.WriteLine($"Total: ${order1.GetTotalCost():F2}\n");
 
     }
 }
