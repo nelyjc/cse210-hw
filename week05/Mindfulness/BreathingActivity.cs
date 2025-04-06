@@ -1,8 +1,9 @@
-class BreathingActivity : Activity
+public class BreathingActivity : Activity
 {
     private List<string> _prompts;
 
-    public BreathingActivity() : base("Breathing", "This is a relaxing activity.", 0)
+    public BreathingActivity(string Name, string Description, int Duration) 
+    : base(Name, Description, Duration)
     {
         _prompts = new List<string> { "Breathe in...", "Breathe out..." };
     }

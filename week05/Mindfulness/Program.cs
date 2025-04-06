@@ -17,7 +17,8 @@ class Program
             string choice = Console.ReadLine();
             if (choice == "1")
             {
-                BreathingActivity breathing = new BreathingActivity();  // Fixed variable name
+                // Corrected BreathingActivity constructor call
+                BreathingActivity breathing = new BreathingActivity("Breathing", "This activity will help you relax by walking you through breathing in and out slowly.", 0);
                 breathing.Run();
             }
             else if (choice == "2")

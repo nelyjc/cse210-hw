@@ -1,12 +1,8 @@
 using System;
 using System.Threading;
 
-public class Activity 
+public class Activity
 {
-    private string _name;
-    private string _description;
-    private int _duration;
-
     public string Name { get; set; }
     public string Description { get; set; }
     public int Duration { get; set; }

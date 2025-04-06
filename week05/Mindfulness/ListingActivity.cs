@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
+using System.Threading;
 
 class ListingActivity : Activity
 {
     private List<string> _prompts;
 
     // Constructor for ListingActivity
-    public ListingActivity() : base(string name, string Description, 0)
+    public ListingActivity() 
+        : base("Listing Activity", "This activity helps you reflect on the good things in your life by having you list as many things as you can in a certain area.", 0) // Corrected constructor call
     {
         _prompts = new List<string>
         {
@@ -51,7 +52,7 @@ class ListingActivity : Activity
         Console.WriteLine(prompt);
 
         // Countdown before starting the listing
-        ShowCountDown(3); 
+        ShowCountDown(3);
 
         // Get list from user
         List<string> userItems = GetListFromUser();
