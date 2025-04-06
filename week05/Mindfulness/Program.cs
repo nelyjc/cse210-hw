@@ -1,9 +1,44 @@
 using System;
+using System.Threading;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World! This is the Mindfulness Project.");
+        while (true)
+        {
+            Console.Clear();
+            Console.WriteLine("Choose an activity:");
+            Console.WriteLine("1. Breathing Activity");
+            Console.WriteLine("2. Reflection Activity");
+            Console.WriteLine("3. Listing Activity");
+            Console.WriteLine("4. Exit");
+
+            string choice = Console.ReadLine();
+            if (choice == "1")
+            {
+                BreathingActivity breathing = new BreathingActivity();  // Fixed variable name
+                breathing.Run();
+            }
+            else if (choice == "2")
+            {
+                ReflectingActivity reflection = new ReflectingActivity();
+                reflection.Run();
+            }
+            else if (choice == "3")
+            {
+                ListingActivity listing = new ListingActivity();
+                listing.Run();
+            }
+            else if (choice == "4")
+            {
+                break;  // Exit the program
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice. Please try again.");
+                Thread.Sleep(2000);  // Pause for 2 seconds before continuing
+            }
+        }
     }
 }

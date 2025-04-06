@@ -1,0 +1,28 @@
+class BreathingActivity : Activity
+{
+    private List<string> _prompts;
+
+    public BreathingActivity() : base("Breathing", "This is a relaxing activity.", 0)
+    {
+        _prompts = new List<string> { "Breathe in...", "Breathe out..." };
+    }
+
+    public void Run()
+    {
+        DisplayStartingMessage();
+        int elapsed = 0;
+
+        while (elapsed < Duration)
+        {
+            foreach (var prompt in _prompts)
+            {
+                if (elapsed >= Duration) break;
+                Console.WriteLine(prompt);
+                ShowCountDown(3);
+                elapsed += 3;
+            }
+        }
+
+        DisplayEndingMessage();
+    }
+}
