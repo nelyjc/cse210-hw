@@ -14,7 +14,8 @@ class ReflectingActivity : Activity
             "Think of a time when you were nice to a stranger.",
             "Think of a time when you were the most humble.",
             "Think of a time when you helped that really needed it.",
-            "Think of a time when you did shared the Gospel of Jesus Christ.",
+            "Think of a time when you did shared the Gospel of Jesus Christ."
+        };
 
         _questions = new List<string>
         {

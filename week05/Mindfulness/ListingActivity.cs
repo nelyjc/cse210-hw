@@ -6,7 +6,6 @@ class ListingActivity : Activity
 {
     private List<string> _prompts;
 
-    // Constructor for ListingActivity
     public ListingActivity() 
         : base("Listing Activity", "This activity helps you reflect on the good things in your life by having you list as many things as you can in a certain area.", 0) // Corrected constructor call
     {
@@ -19,8 +18,6 @@ class ListingActivity : Activity
             "Who are some of your personal heroes?"
         };
     }
-
-    // Method to get list of items from the user
     public List<string> GetListFromUser()
     {
         List<string> userList = new List<string>();
@@ -41,26 +38,23 @@ class ListingActivity : Activity
         return userList;
     }
 
-    // Run method for ListingActivity
+    // Run 
     public void Run()
     {
         DisplayStartingMessage();
 
-        // Prompt the user
+
         Random rand = new Random();
         string prompt = _prompts[rand.Next(_prompts.Count)];
         Console.WriteLine(prompt);
-
-        // Countdown before starting the listing
         ShowCountDown(3);
 
-        // Get list from user
+   
         List<string> userItems = GetListFromUser();
-
-        // Display the result
+ 
         Console.WriteLine($"You listed {userItems.Count} items!");
 
-        // Display the ending message
+       
         DisplayEndingMessage();
     }
 }

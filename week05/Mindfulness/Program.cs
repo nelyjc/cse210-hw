@@ -17,7 +17,7 @@ class Program
             string choice = Console.ReadLine();
             if (choice == "1")
             {
-                // Corrected BreathingActivity constructor call
+                
                 BreathingActivity breathing = new BreathingActivity("Breathing", "This activity will help you relax by walking you through breathing in and out slowly.", 0);
                 breathing.Run();
             }
@@ -33,12 +33,12 @@ class Program
             }
             else if (choice == "4")
             {
-                break;  // Exit the program
+                break;  // Exit 
             }
             else
             {
                 Console.WriteLine("Invalid choice. Please try again.");
-                Thread.Sleep(2000);  // Pause for 2 seconds before continuing
+                Thread.Sleep(2000);  
             }
         }
     }
