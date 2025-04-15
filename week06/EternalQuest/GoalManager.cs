@@ -58,6 +58,8 @@ class GoalManager
     {
         Console.WriteLine("What type of goal would you like to create?");
         Console.WriteLine("1. Checklist Goal");
+        
+
 
         Console.Write("Enter your choice: ");
         string choice = Console.ReadLine();
@@ -98,17 +100,10 @@ class GoalManager
             Goal selectedGoal = _goals[index - 1];
 
             int before = _score;
-            selectedGoal.RecordEvent();
-
-            // Add base points
+       
             _score += selectedGoal.Points;
 
-            // // Bonus points if goal is now complete
-            // if (selectedGoal is ChecklistGoal checklist && checklist.IsComplete())
-            // {
-            //     _score += checklist.GetBonus();
-            // }
-
+          
             Console.WriteLine($"Total score is now: {_score}");
         }
         else
@@ -161,7 +156,7 @@ public void LoadGoals()
             bool isComplete = bool.Parse(parts[4]);
 
             SimpleGoal goal = new(name, description, points);
-            goal.SetComplete(isComplete); // This method should set _isComplete based on the loaded data
+            goal.SetComplete(isComplete); 
             _goals.Add(goal);
         }
         else if (type == "ChecklistGoal")
