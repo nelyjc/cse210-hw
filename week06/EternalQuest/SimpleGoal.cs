@@ -5,14 +5,14 @@ public class SimpleGoal : Goal
     public SimpleGoal(string shortName, string description, int points)
         : base(shortName, description, points)
     {
-        _isComplete = false; // Simple goals are incomplete by default
+        _isComplete = false; 
     }
 
     public override void RecordEvent()
     {
         if (!_isComplete)
         {
-            _isComplete = true;  // Mark the goal as completed after the event is recorded
+            _isComplete = true;  
             Console.WriteLine($"Goal '{ShortName}' completed! You earned {Points} points.");
         }
         else
@@ -36,8 +36,7 @@ public class SimpleGoal : Goal
         return $"[{(IsComplete() ? "X" : " ")}] {ShortName} ({Description})";
     }
 
-    // Method to set the completion status when loading from a file
-    public void SetComplete(bool isComplete)
+        public void SetComplete(bool isComplete)
     {
         _isComplete = isComplete;
     }

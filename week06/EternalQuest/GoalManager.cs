@@ -62,18 +62,18 @@ class GoalManager
         Console.Write("Enter your choice: ");
         string choice = Console.ReadLine();
 
-        Console.Write("Enter short name: ");
+        Console.Write("Enter name of goal: ");
         string name = Console.ReadLine();
 
-        Console.Write("Enter description: ");
+        Console.Write("Enter description of goal: ");
         string description = Console.ReadLine();
 
-        Console.Write("Enter points: ");
+        Console.Write("Enter points worth for goal: ");
         int points = int.Parse(Console.ReadLine());
 
         if (choice == "1")
         {
-            Console.Write("Enter target completions: ");
+            Console.Write("Enter target completions of goal: ");
             int target = int.Parse(Console.ReadLine());
 
             Console.Write("Enter bonus points: ");
