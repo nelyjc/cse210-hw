@@ -100,7 +100,9 @@ class GoalManager
             Goal selectedGoal = _goals[index - 1];
 
             int before = _score;
-       
+            selectedGoal.RecordEvent();
+
+            // Add base points
             _score += selectedGoal.Points;
 
           
