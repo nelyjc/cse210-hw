@@ -7,18 +7,21 @@ public class EternalGoal : Goal
 
     public override void RecordEvent()
     {
-       
         Console.WriteLine($"{ShortName} is an eternal goal. Keep going!");
     }
 
     public override bool IsComplete()
     {
-        
         return false;  
     }
 
     public override string GetStringRepresentation()
     {
         return $"EternalGoal|{ShortName}|{Description}|{Points}";
+    }
+
+    public override string GetDetailsString()
+    {
+        return $"[{(IsComplete() ? "X" : " ")}] {ShortName} ({Description}) - Eternal Goal";
     }
 }

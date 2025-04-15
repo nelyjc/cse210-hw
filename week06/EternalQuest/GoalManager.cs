@@ -132,42 +132,51 @@ class GoalManager
         Console.WriteLine("Goals and score saved.");
     }
 
-    public void LoadGoals()
+public void LoadGoals()
+{
+    Console.Write("Enter filename to load from: ");
+    string filename = Console.ReadLine();
+
+    if (!File.Exists(filename))
     {
-        Console.Write("Enter filename to load from: ");
-        string filename = Console.ReadLine();
-
-        if (!File.Exists(filename))
-        {
-            Console.WriteLine("File not found.");
-            return;
-        }
-
-        _goals.Clear();
-        string[] lines = File.ReadAllLines(filename);
-
-        _score = int.Parse(lines[0]);
-
-        for (int i = 1; i < lines.Length; i++)
-        {
-            string[] parts = lines[i].Split('|');
-            string type = parts[0];
-            string name = parts[1];
-            string description = parts[2];
-            int points = int.Parse(parts[3]);
-
-            if (type == "ChecklistGoal")
-            {
-                int target = int.Parse(parts[4]);
-                int bonus = int.Parse(parts[5]);
-                int amountCompleted = int.Parse(parts[6]);
-
-                ChecklistGoal goal = new(name, description, points, target, bonus);
-                goal.SetProgress(amountCompleted); // This method needs to be added in ChecklistGoal
-                _goals.Add(goal);
-            }
-        }
-
-        Console.WriteLine("Goals and score loaded.");
+        Console.WriteLine("File not found.");
+        return;
     }
+
+    _goals.Clear();
+    string[] lines = File.ReadAllLines(filename);
+
+    _score = int.Parse(lines[0]);
+
+    for (int i = 1; i < lines.Length; i++)
+    {
+        string[] parts = lines[i].Split('|');
+        string type = parts[0];
+        string name = parts[1];
+        string description = parts[2];
+        int points = int.Parse(parts[3]);
+
+        if (type == "SimpleGoal")
+        {
+            bool isComplete = bool.Parse(parts[4]);
+
+            SimpleGoal goal = new(name, description, points);
+            goal.SetComplete(isComplete); // This method should set _isComplete based on the loaded data
+            _goals.Add(goal);
+        }
+        else if (type == "ChecklistGoal")
+        {
+            int target = int.Parse(parts[4]);
+            int bonus = int.Parse(parts[5]);
+            int amountCompleted = int.Parse(parts[6]);
+
+            ChecklistGoal goal = new(name, description, points, target, bonus);
+            
+            _goals.Add(goal);
+        }
+    }
+
+    Console.WriteLine("Goals and score loaded.");
+}
+
 }

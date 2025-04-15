@@ -38,7 +38,7 @@ class Program
                     break;
                 case "6":
                     Console.WriteLine("Goodbye!");
-                    return; // Exit the program
+                    return; 
                 default:
                     Console.WriteLine("Invalid option.");
                     break;

@@ -1,9 +1,10 @@
-class ChecklistGoal : Goal
+public class ChecklistGoal : Goal
 {
     private int _amountCompleted;
     private int _target;
     private int _bonus;
 
+    // Constructor to initialize the goal
     public ChecklistGoal(string shortName, string description, int points, int target, int bonus)
         : base(shortName, description, points)
     {
@@ -12,6 +13,7 @@ class ChecklistGoal : Goal
         _bonus = bonus;
     }
 
+    // Record event and update the goal progress
     public override void RecordEvent()
     {
         if (!IsComplete())
@@ -30,16 +32,19 @@ class ChecklistGoal : Goal
         }
     }
 
+    // Check if the goal is complete (target completions met)
     public override bool IsComplete()
     {
         return _amountCompleted >= _target;
     }
 
+    // Get a string that describes the goal and its progress
     public override string GetDetailsString()
     {
         return $"[{(IsComplete() ? "X" : " ")}] {ShortName} ({Description}) -- Completed {_amountCompleted}/{_target}";
     }
 
+    // Get a string representation of the goal for saving or loading
     public override string GetStringRepresentation()
     {
         return $"ChecklistGoal|{ShortName}|{Description}|{Points}|{_target}|{_bonus}|{_amountCompleted}";

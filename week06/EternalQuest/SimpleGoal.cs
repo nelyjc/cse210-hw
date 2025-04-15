@@ -35,4 +35,10 @@ public class SimpleGoal : Goal
     {
         return $"[{(IsComplete() ? "X" : " ")}] {ShortName} ({Description})";
     }
+
+    // Method to set the completion status when loading from a file
+    public void SetComplete(bool isComplete)
+    {
+        _isComplete = isComplete;
+    }
 }
