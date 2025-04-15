@@ -1,7 +1,7 @@
 
 public class Running : Activity
 {
-    private double distance; // in kilometers
+    private double distance; 
 
     public Running(DateTime date, int duration, double distance)
         : base(date, duration)

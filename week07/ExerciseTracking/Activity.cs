@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-abstract class Activity
+public abstract class Activity
 {
     protected DateTime date;
     protected int duration; // in minutes
@@ -12,13 +12,21 @@ abstract class Activity
         this.duration = duration;
     }
 
-    public abstract double GetDistance(); // km or laps depending on activity
-    public abstract double GetSpeed();    // km/h or similar
-    public abstract double GetPace();     // minutes per km or similar
+    public abstract double GetDistance(); // km 
+    public abstract double GetSpeed();    // km/h 
+    public abstract double GetPace();     // minutes per km 
 
     public virtual string GetSummary()
     {
         return $"{date.ToShortDateString()} {this.GetType().Name} ({duration} min) - " +
                $"Distance: {GetDistance():0.0} km, Speed: {GetSpeed():0.0} kph, Pace: {GetPace():0.0} min per km";
     }
+    public int GetDuration()
+    {
+    return duration;
+    }
+    public int GetLengthInMinutes()
+    {
+    return duration;
+}
 }
