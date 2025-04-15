@@ -1,36 +1,47 @@
 class ChecklistGoal : Goal
-
 {
     private int _amountCompleted;
     private int _target;
-    private int _points;
+    private int _bonus;
 
-    public ChecklistGoal(int _amountCompleted, int _target, int _points) : base(name, _points)
+    public ChecklistGoal(string shortName, string description, int points, int target, int bonus)
+        : base(shortName, description, points)
     {
         _amountCompleted = 0;
         _target = target;
-        _points = _points;
+        _bonus = bonus;
     }
-    
-    public override int RecordEvent()
+
+    public override void RecordEvent()
     {
-        if (_amountCompleted < _target)
+        if (!IsComplete())
         {
-            _amountCompleted++
-            return Points + (_timesCompleted == _targetCount ? _bonus : 0);
+            _amountCompleted++;
+            Console.WriteLine($"Recorded! You earned {Points} points.");
+
+            if (IsComplete())
+            {
+                Console.WriteLine($"Bonus achieved! You earned an extra {_bonus} points!");
+            }
         }
-        return 0;
+        else
+        {
+            Console.WriteLine("This goal is already complete!");
+        }
+    }
+
+    public override bool IsComplete()
+    {
+        return _amountCompleted >= _target;
     }
 
     public override string GetDetailsString()
     {
-        return $"[{(_timesCompleted >= _targetCount ? "X" : " ")}] {Name} -- Completed {_timesCompleted}/{_targetCount} times";
+        return $"[{(IsComplete() ? "X" : " ")}] {ShortName} ({Description}) -- Completed {_amountCompleted}/{_target}";
     }
 
-    public override string GetSaveString()
+    public override string GetStringRepresentation()
     {
-        return $"ChecklistGoal|{Name}|{Points}|{_targetCount}|{_bonus}|{_timesCompleted}";
+        return $"ChecklistGoal|{ShortName}|{Description}|{Points}|{_target}|{_bonus}|{_amountCompleted}";
     }
-
-    public override bool IsComplete() => _timesCompleted >= _targetCount;
 }

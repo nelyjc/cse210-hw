@@ -1,19 +1,18 @@
 abstract class Goal
 {
-    public string _shortName {get; set; }
-    public string _description {get; set; }
-    public int _points {get; set; }
+    public string ShortName { get; protected set; }
+    public string Description { get; protected set; }
+    public int Points { get; protected set; }
 
-
-    public Goal(string _shortName, int _points)
+    public Goal(string shortName, string description, int points)
     {
-        _shortName = name;
-        _points = _points;
+        ShortName = shortName;
+        Description = description;
+        Points = points;
     }
-    public abstract RecordEvent();
-    public abstract IsComplete();
-    public abstract GetDetailsString();
-    public abstract GetStringRepresentation();
-    public virtual bool IsComplete() => false;
-}
+
+    public abstract void RecordEvent();
+    public abstract bool IsComplete();
+    public abstract string GetDetailsString();
+    public abstract string GetStringRepresentation();
 }

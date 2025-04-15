@@ -1,19 +1,24 @@
-class EternalGoal : Goal
+public class EternalGoal : Goal
 {
-    public EternalGoal(string name, int points) : base(name, points) { }
-
-    public override int RecordEvent()
+    public EternalGoal(string shortName, string description, int points)
+        : base(shortName, description, points)
     {
-        return Points;
     }
 
-    public override string GetDetailsString()
+    public override void RecordEvent()
     {
-        return $"[∞] {Name}";
+       
+        Console.WriteLine($"{ShortName} is an eternal goal. Keep going!");
     }
 
-    public override string GetSaveString()
+    public override bool IsComplete()
     {
-        return $"EternalGoal|{Name}|{Points}";
+        
+        return false;  
+    }
+
+    public override string GetStringRepresentation()
+    {
+        return $"EternalGoal|{ShortName}|{Description}|{Points}";
     }
 }

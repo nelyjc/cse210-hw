@@ -1,31 +1,38 @@
-class SimpleGoal : Goal
+public class SimpleGoal : Goal
 {
     private bool _isComplete;
 
-    public SimpleGoal(string name, int points) : base(name, points)
+    public SimpleGoal(string shortName, string description, int points)
+        : base(shortName, description, points)
     {
-        _isComplete = false;
+        _isComplete = false; // Simple goals are incomplete by default
     }
 
-    public override int RecordEvent()
+    public override void RecordEvent()
     {
         if (!_isComplete)
         {
-            _isComplete = true;
-            return Points;
+            _isComplete = true;  // Mark the goal as completed after the event is recorded
+            Console.WriteLine($"Goal '{ShortName}' completed! You earned {Points} points.");
         }
-        return 0;
+        else
+        {
+            Console.WriteLine($"Goal '{ShortName}' is already completed.");
+        }
+    }
+
+    public override bool IsComplete()
+    {
+        return _isComplete;
+    }
+
+    public override string GetStringRepresentation()
+    {
+        return $"SimpleGoal|{ShortName}|{Description}|{Points}|{_isComplete}";
     }
 
     public override string GetDetailsString()
     {
-        return $"[{(_isComplete ? "X" : " ")}] {Name}";
+        return $"[{(IsComplete() ? "X" : " ")}] {ShortName} ({Description})";
     }
-
-    public override string GetSaveString()
-    {
-        return $"SimpleGoal|{Name}|{Points}|{_isComplete}";
-    }
-
-    public override bool IsComplete() => _isComplete;
 }
